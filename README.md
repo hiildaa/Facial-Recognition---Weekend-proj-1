@@ -10,3 +10,7 @@ The following photos are some examples of the results.
 <img width="364" alt="Screen Shot 2021-06-26 at 3 19 27 PM" src="https://user-images.githubusercontent.com/44752362/123524747-f3928580-d691-11eb-88bd-fbc65ab44096.png">
 
 The model was intellegent enough to recognize the different ages of the same person even though the training dataset only included the same person at one age.
+
+
+_Acknowlegment_:
+I followed https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ YouTube channel and added my own dataset to evaulate the performance.
