@@ -20,6 +20,8 @@ for name in os.listdir(KNOWN_FACES_DIR):
     if name == ".DS_Store":
         continue
     for filename in os.listdir(f"{KNOWN_FACES_DIR}/{name}"):
+        if filename == ".DS_Store":
+            continue
         image = face_recognition.load_image_file(f"{KNOWN_FACES_DIR}/{name}/{filename}")
         encoding = face_recognition.face_encodings(image)[0]
         known_faces.append(encoding)
@@ -28,6 +30,8 @@ for name in os.listdir(KNOWN_FACES_DIR):
 print("processing unkown faces")
 for filename in os.listdir(UNKNOWN_FACES_DIR):
     print(filename)
+    if filename == ".DS_Store":
+        continue
     image = face_recognition.load_image_file(f"{UNKNOWN_FACES_DIR}/{filename}")
     locations = face_recognition.face_locations(image, model=MODEL)
     encodings = face_recognition.face_encodings(image, locations)
@@ -50,7 +54,7 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
             cv2.rectangle(image, top_left, bottom_right, color, cv2.FILLED)
             cv2.putText(image, match, (face_location[3]+10, face_location[2]+15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200,200,200), FONT_THICKNESS)
     cv2.imshow(filename, image)
-    cv2.waitKey(10000)
+    cv2.waitKey(0)
     #cv2.destroyWindows(filename)
 
 
